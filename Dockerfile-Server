@@ -1,4 +1,4 @@
-# Front-end image for Facenet
+# Server side image for Facenet
 FROM tensorflow/tensorflow
 
 #install required Linux packages
