@@ -1,0 +1,3 @@
+Node.js: apt-get install update && apt-get install -y nodejs npm
+Vue.js: npm install --global vue-cli
+express: npm install --global exprees

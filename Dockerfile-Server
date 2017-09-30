@@ -1,0 +1,29 @@
+# Front-end image for Facenet
+FROM tensorflow/tensorflow
+
+#install required Linux packages
+RUN apt-get update && apt-get install -y \
+  git \
+  npm \
+  sudo
+
+#extra steps are needed to install NodeJs 6.x
+RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+RUN apt-get install -y nodejs
+
+#git clone Facenet and server repositories
+RUN git clone https://github.com/yhj2263/Facenet.git ~/Facenet
+RUN git clone https://github.com/yhj2263/Facenet-Server.git ~/Facenet-Server
+
+#install express
+RUN npm install -g express
+
+#install NodeJS dependencies
+RUN cd ~/Facenet-Server && npm install
+
+#install Python dependencies
+RUN cd ~/Facenet && pip install -r requirements.txt
+
+EXPOSE 8080
+#run the UI
+CMD cd ~/Facenet-Server && npm start
