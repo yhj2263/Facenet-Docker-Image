@@ -5,6 +5,7 @@ FROM ubuntu:16.04
 RUN apt-get update && apt-get install -y \
   git \
   npm \
+  sudo \
   curl
 
 #extra steps are needed to install NodeJs 6.x
